@@ -34,10 +34,11 @@ public class API {
 	@Produces("application/json")
 	public Response getResponse(@PathParam("s") String s) throws JSONException {
 		JSONObject json = new JSONObject();
+
+		String output = NaiveBayesRunnable.getInstance().getCategory(s);
+		json.put("prediction", output);
 		
-		json.put("Response", s);
-		
-		String result = "@Produces(\"application/json\") Output: \n\n Response: \n\n" + json;
+		String result = "@Produces(\"application/json\") Output: \n\n Category Prediction: \n\n"+json;
 		return Response.status(200).entity(result).build();
 	}
 	
