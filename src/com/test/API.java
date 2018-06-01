@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 import com.naivebayes.NaiveBayesRunnable;
 
-@Path("/predict")
+@Path("/words")
 public class API {
 	@GET
 	@Produces("application/json")
